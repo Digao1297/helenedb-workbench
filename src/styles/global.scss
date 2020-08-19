@@ -1,0 +1,15 @@
+@import "./variables.scss";
+
+/** 
+ * Centralizando coisas 
+ */
+.center-x {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.center-x-y {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}

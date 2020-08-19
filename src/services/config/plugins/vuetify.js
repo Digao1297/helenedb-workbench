@@ -7,22 +7,25 @@ Vue.use(Vuetify);
 export default new Vuetify({
   theme: {
     options: {
-      customProperties: true
+      customProperties: true,
     },
     themes: {
       light: {
-        primary: "#ee44aa",
-        secondary: "#424242",
-        accent: "#82B1FF",
-        error: "#FF5252",
-        info: "#2196F3",
-        success: "#4CAF50",
-        warning: "#FFC107"
-      }
-    }
+        "green-high": "#569C79",
+        "green-medium": "#8BC092",
+        green: "#C2DBAF",
+        "green-small": "#DBECC0",
+        "blue-weak": "#E7F6FE",
+        "blue-strong": "#6B8094",
+        text: "#333333",
+        dark: "#202124",
+        "dark-medium": "#000000",
+        white: "#FFFFFF",
+      },
+    },
   },
   lang: {
     locales: { pt },
-    current: "pt"
-  }
+    current: "pt",
+  },
 });

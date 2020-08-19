@@ -10,6 +10,7 @@ import vuetify from "./services/config/plugins/vuetify";
  */
 import "roboto-fontface/css/roboto/roboto-fontface.css";
 import "@mdi/font/css/materialdesignicons.css";
+import "./styles/global.scss";
 
 Vue.config.productionTip = false;
 
