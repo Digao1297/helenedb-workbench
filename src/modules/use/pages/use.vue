@@ -4,7 +4,7 @@
       <v-col cols="8" sm="6" md="6" lg="6" xl="5">
         <p class="title-use">Digite seu SQL abaixo</p>
         <v-textarea outlined label="Digite sua consulta SQL aqui..." />
-        <v-btn class="btn-analise" color="green-medium" height="55">Analisar</v-btn>
+        <v-btn class="btn-analise" color="primary" height="55" @click.prevent="sendQuery()">Analisar</v-btn>
       </v-col>
     </v-row>
     <v-row class="center-x-y">
@@ -30,7 +30,12 @@
 
 <script>
 export default {
-  name: "use-main"
+  name: "use-main",
+  methods: {
+    sendQuery() {
+      this.$router.push("result");
+    }
+  }
 };
 </script>
 

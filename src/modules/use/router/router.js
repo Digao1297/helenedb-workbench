@@ -1,5 +1,8 @@
+import children from "./children";
+
 export default {
   path: "",
-  name: "Utilizar",
+  name: "",
   component: () => import("../pages/index.vue"),
+  children: children,
 };

@@ -1,5 +1,5 @@
 import { router } from "./router";
-import * as store from "./store";
+import store from "./store";
 
 export default {
   router,

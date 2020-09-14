@@ -12,7 +12,7 @@ export default new Vuetify({
     themes: {
       light: {
         "green-high": "#569C79",
-        "green-medium": "#8BC092",
+        primary: "#8BC092",
         green: "#C2DBAF",
         "green-small": "#DBECC0",
         "blue-weak": "#E7F6FE",

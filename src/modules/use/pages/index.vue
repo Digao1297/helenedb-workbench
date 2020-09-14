@@ -6,25 +6,40 @@
           <v-img src="../../../styles/assets/logo.png" max-height="50" max-width="50" />
         </v-col>
         <v-col>
-          <v-tabs v-model="tab" color="green-high">
-            <v-tab>Sobre</v-tab>
-            <v-tab>Utilizar</v-tab>
-          </v-tabs>
+          <nav class="nav_tabs">
+            <ul>
+              <li>
+                <input
+                  type="radio"
+                  name="buttons"
+                  class="rd_tabs"
+                  id="tab1"
+                  value="/about"
+                  v-model="radioButtonComp"
+                />
+                <label for="tab1">Sobre</label>
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="buttons"
+                  class="rd_tabs"
+                  id="tab2"
+                  value="/"
+                  v-model="radioButtonComp"
+                />
+                <label for="tab2">Utilizar</label>
+              </li>
+            </ul>
+          </nav>
         </v-col>
       </v-row>
     </div>
     <v-main>
       <v-container>
-        <div class="body">
-          <v-tabs-items v-model="tab" vertical>
-            <v-tab-item>
-              <about />
-            </v-tab-item>
-            <v-tab-item>
-              <use-main />
-            </v-tab-item>
-          </v-tabs-items>
-        </div>
+        <transition name="fade" mode="out-in">
+          <router-view />
+        </transition>
       </v-container>
     </v-main>
     <v-footer app class="center-x footer-main" color="white">
@@ -40,11 +55,26 @@
 export default {
   name: "dashboard",
   data: () => ({
-    tab: 1
+    radioButton: "/"
   }),
-  components: {
-    "use-main": () => import("./use.vue"),
-    about: () => import("./about.vue")
+  methods: {},
+  computed: {
+    radioButtonComp: {
+      get() {
+        return this.radioButton;
+      },
+      set(value) {
+        this.radioButton = value;
+        if (this.$router.currentRoute.path != value) {
+          this.$router.push(value);
+        }
+      }
+    }
+  },
+  created() {
+    if (this.$router.currentRoute.path != "/result") {
+      this.$router.push("/result");
+    }
   }
 };
 </script>
@@ -60,5 +90,49 @@ export default {
 
 .footer-main {
   border-top: solid 2px $gray-small !important;
+}
+
+/*
+* Menu
+*/
+.nav_tabs {
+  width: 20vw;
+}
+
+.nav_tabs ul {
+  list-style: none;
+}
+.nav_tabs ul li {
+  float: left;
+}
+.nav_tabs li {
+  margin-right: 3rem;
+}
+
+.nav_tabs label {
+  cursor: pointer;
+
+  color: $text;
+  width: 100px;
+  display: inline-block;
+  margin: 0;
+}
+
+.nav_tabs label {
+  &:after {
+    display: block;
+    content: "";
+    border-bottom: solid 3px $green-high;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+  }
+}
+
+.rd_tabs {
+  display: none;
+  &:checked ~ label:after {
+    transform: scaleX(1);
+    transform-origin: 0% 50%;
+  }
 }
 </style>

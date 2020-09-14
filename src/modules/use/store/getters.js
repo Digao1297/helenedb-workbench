@@ -1,2 +1,2 @@
-// eslint-disable-next-line no-unused-vars
-export const getExample = (state) => {};
+export const getLexer = (state) => state.lexer;
+export const getOptimizer = (state) => state.optimizer;
